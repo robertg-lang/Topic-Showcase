@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "The Deep Ocean"
+description = "A single-page informational website about the deep ocean — featuring sections on bioluminescence, extreme pressure life, ocean trenches, and exploration. Designed for general audiences who want to learn about Earth's most mysterious environment."
+version = "1.0.0"
+id = "artifacts/deep-ocean"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19201
+
+[services.development]
+run = "pnpm --filter @workspace/deep-ocean run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/deep-ocean", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/deep-ocean/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19201"
+BASE_PATH = "/"

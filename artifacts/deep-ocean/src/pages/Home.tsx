@@ -217,9 +217,32 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative py-12 border-t border-white/5 bg-black z-20 text-center text-slate-600 font-mono text-xs tracking-widest uppercase">
-        <p>The Ocean Deep © {new Date().getFullYear()}</p>
-        <p className="mt-2 text-slate-800">Embrace the unknown</p>
+      <footer className="relative overflow-hidden border-t border-cyan-400/10 bg-black py-16 z-20">
+        <div className="absolute inset-0 footer-current opacity-70" aria-hidden="true" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 text-center">
+          <motion.div
+            className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-cyan-300/40 bg-cyan-300/5 text-2xl font-serif text-cyan-200 shadow-[0_0_32px_rgba(34,211,238,0.2)]"
+            animate={{ scale: [1, 1.08, 1], boxShadow: [
+              '0 0 24px rgba(34, 211, 238, 0.16)',
+              '0 0 42px rgba(34, 211, 238, 0.36)',
+              '0 0 24px rgba(34, 211, 238, 0.16)',
+            ] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            aria-label="Bioluminescent production mark"
+          >
+            W
+          </motion.div>
+          <p className="text-[10px] font-mono uppercase tracking-[0.35em] text-cyan-300/60">
+            An original ocean film
+          </p>
+          <p className="mt-3 text-xl font-serif tracking-wide text-slate-200">
+            Wizardo Productions
+          </p>
+          <div className="my-7 h-px w-16 bg-cyan-300/30" />
+          <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600">
+            The Ocean Deep © {new Date().getFullYear()} · Embrace the unknown
+          </p>
+        </div>
       </footer>
     </div>
   );
